@@ -3,35 +3,31 @@
 ersadate="02-Mar-2017"
 srcdir="src"
 distdir="dist"
+outfile="ersa_a5_print_02-Mar-2017"
 
 mkdir -p $distdir/rearrange
 mkdir -p $distdir/concat
 mkdir -p $distdir/nup
 
-pdftk $srcdir/FAC_YAMB_$ersadate.pdf cat 1 4 2 3 6 5 7 output $distdir/rearrange/FAC_YAMB_$ersadate.rearrange.pdf # 7 pages
-pdftk $srcdir/FAC_YBAF_$ersadate.pdf cat 1 4 2 3 6 5   output $distdir/rearrange/FAC_YBAF_$ersadate.rearrange.pdf # 6 pages
-pdftk $srcdir/FAC_YBCG_$ersadate.pdf cat 1 4 2 3       output $distdir/rearrange/FAC_YBCG_$ersadate.rearrange.pdf # 4 pages
-pdftk $srcdir/FAC_YBWW_$ersadate.pdf cat 1 3 2         output $distdir/rearrange/FAC_YBWW_$ersadate.rearrange.pdf # 3 pages
-pdftk $srcdir/FAC_YDUN_$ersadate.pdf cat 1             output $distdir/rearrange/FAC_YDUN_$ersadate.rearrange.pdf # 1 page
-pdftk $srcdir/FAC_YSPE_$ersadate.pdf cat 1             output $distdir/rearrange/FAC_YSPE_$ersadate.rearrange.pdf # 1 page
-pdftk $srcdir/FAC_YTWB_$ersadate.pdf cat 1 3 2         output $distdir/rearrange/FAC_YTWB_$ersadate.rearrange.pdf # 3 pages
-pdftk $srcdir/FAC_YWCK_$ersadate.pdf cat 1             output $distdir/rearrange/FAC_YWCK_$ersadate.rearrange.pdf # 1 page
-
 pdftk \
-  $distdir/rearrange/FAC_YAMB_$ersadate.rearrange.pdf \
-  $distdir/rearrange/FAC_YBAF_$ersadate.rearrange.pdf \
-  $distdir/rearrange/FAC_YBCG_$ersadate.rearrange.pdf \
-  $distdir/rearrange/FAC_YBWW_$ersadate.rearrange.pdf \
-  $distdir/rearrange/FAC_YDUN_$ersadate.rearrange.pdf \
-  $distdir/rearrange/FAC_YSPE_$ersadate.rearrange.pdf \
-  $distdir/rearrange/FAC_YTWB_$ersadate.rearrange.pdf \
-  $distdir/rearrange/FAC_YWCK_$ersadate.rearrange.pdf \
+  $srcdir/FAC_YAMB_$ersadate.pdf \
+  $srcdir/FAC_YBAF_$ersadate.pdf \
+  $srcdir/FAC_YBAF_$ersadate.pdf \
+  $srcdir/FAC_YBCG_$ersadate.pdf \
+  $srcdir/FAC_YBAF_$ersadate.pdf \
+  $srcdir/FAC_YBWW_$ersadate.pdf \
+  $srcdir/FAC_YDUN_$ersadate.pdf \
+  $srcdir/FAC_YSPE_$ersadate.pdf \
+  $srcdir/FAC_YTWB_$ersadate.pdf \
+  $srcdir/FAC_YWCK_$ersadate.pdf \
   $srcdir/RDS_YAMB_$ersadate.pdf \
   $srcdir/RDS_YBAF_$ersadate.pdf \
   $srcdir/RDS_YBCG_$ersadate.pdf \
   $srcdir/RDS_YBWW_$ersadate.pdf \
   $srcdir/RDS_YTWB_$ersadate.pdf \
   $srcdir/RDS_YWCK_$ersadate.pdf \
-  output $distdir/concat/out.pdf
+  output $distdir/concat/$outfile.pdf
 
-pdfnup $distdir/concat/out.pdf -o $distdir/nup/out.pdf
+pdftk $distdir/concat/$outfile.pdf cat 1 4 2 3 5 8 6 7 9 12 10 11 13 16 14 15 17 20 18 19 21 24 22 23 25 28 26 27 29 32 30 31 33 36 34 35 37 40 38 39 41 44 42 43 output $distdir/rearrange/$outfile.pdf
+
+pdfnup $distdir/rearrange/$outfile.pdf -o $distdir/nup/$outfile.pdf
