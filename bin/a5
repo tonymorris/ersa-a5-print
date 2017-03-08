@@ -12,9 +12,7 @@ mkdir -p $distdir/nup
 pdftk \
   $srcdir/FAC_YAMB_$ersadate.pdf \
   $srcdir/FAC_YBAF_$ersadate.pdf \
-  $srcdir/FAC_YBAF_$ersadate.pdf \
   $srcdir/FAC_YBCG_$ersadate.pdf \
-  $srcdir/FAC_YBAF_$ersadate.pdf \
   $srcdir/FAC_YBWW_$ersadate.pdf \
   $srcdir/FAC_YDUN_$ersadate.pdf \
   $srcdir/FAC_YSPE_$ersadate.pdf \
@@ -28,6 +26,6 @@ pdftk \
   $srcdir/RDS_YWCK_$ersadate.pdf \
   output $distdir/concat/$outfile.pdf
 
-pdftk $distdir/concat/$outfile.pdf cat 1 4 2 3 5 8 6 7 9 12 10 11 13 16 14 15 17 20 18 19 21 24 22 23 25 28 26 27 29 32 30 31 33 36 34 35 37 40 38 39 41 44 42 43 output $distdir/rearrange/$outfile.pdf
+pdftk $distdir/concat/$outfile.pdf cat 1 4 3 2 5 8 7 6 9 12 11 10 13 16 15 14 17 20 19 18 21 24 23 22 25 28 27 26 29 32 31 30 output $distdir/rearrange/$outfile.pdf
 
 pdfnup $distdir/rearrange/$outfile.pdf -o $distdir/nup/$outfile.pdf
